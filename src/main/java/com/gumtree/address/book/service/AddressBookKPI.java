@@ -3,12 +3,10 @@ package com.gumtree.address.book.service;
 
 import com.gumtree.address.book.model.AddressBook;
 import com.gumtree.address.book.utils.Helper;
-import org.springframework.stereotype.Component;
 
 import java.util.Date;
 import java.util.List;
 
-@Component
 public class AddressBookKPI extends AddressBookServiceImpl {
 
     public int getHowManyGender(String gender) throws Exception {

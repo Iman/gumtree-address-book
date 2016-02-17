@@ -16,10 +16,18 @@ public class AddressBookKPITest {
     }
 
     @Test
-    public void testGetHowManyGender() throws Exception {
+    public void testGetHowManyMaleGender() throws Exception {
 
-        assertEquals(3, addressBookKPI.getHowManyGender("Male"));
-        assertEquals(2, addressBookKPI.getHowManyGender("Female"));
+        Gender gender = Gender.MALE;
+        assertEquals(3, addressBookKPI.getHowManyGender(gender.getValue()));
+        assertEquals(0, addressBookKPI.getHowManyGender("boo"));
+    }
+
+    @Test
+    public void testGetHowManyFemaleGender() throws Exception {
+
+        Gender gender = Gender.FEMALE;
+        assertEquals(2, addressBookKPI.getHowManyGender(gender.getValue()));
         assertEquals(0, addressBookKPI.getHowManyGender("boo"));
     }
 
@@ -31,6 +39,10 @@ public class AddressBookKPITest {
     @Test
     public void testGetDayDiffBetweenContacts() throws Exception {
         assertEquals(2862, addressBookKPI.getDayDiffBetweenContacts("Bill McKnight", "Paul Robinson"));
+    }
+
+    @Test(expected = NullPointerException.class)
+    public void testGetDayDiffBetweenContactsWithException() throws Exception {
         assertEquals(0, addressBookKPI.getDayDiffBetweenContacts("Foo", "Bar"));
     }
 }

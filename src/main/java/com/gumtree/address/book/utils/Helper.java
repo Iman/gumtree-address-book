@@ -2,7 +2,6 @@ package com.gumtree.address.book.utils;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.stereotype.Component;
 
 import java.text.DateFormat;
 import java.text.ParseException;
@@ -10,7 +9,6 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
 
-@Component
 public class Helper {
 
     public final static String DATE_FORMAT = "dd/MM/yy";
@@ -26,9 +24,9 @@ public class Helper {
             long timeDifferenceMilliseconds = date2.getTime() - date1.getTime();
             long diffDays = timeDifferenceMilliseconds / (60 * 60 * 1000 * 24);
             return diffDays;
-        } catch (Exception ex) {
+        } catch (NullPointerException ex) {
             LOG.debug("an exception was thrown", ex);
-            return 0;
+            throw ex;
         }
 
     }

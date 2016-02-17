@@ -2,7 +2,6 @@ package com.gumtree.address.book.service;
 
 import com.gumtree.address.book.model.AddressBook;
 import com.gumtree.address.book.utils.Helper;
-import org.springframework.stereotype.Service;
 
 import java.io.BufferedReader;
 import java.io.InputStream;
@@ -10,7 +9,6 @@ import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
 
-@Service
 public class AddressBookServiceImpl implements AddressBookService {
 
     public List<AddressBook> getAddressBookList() throws Exception {
